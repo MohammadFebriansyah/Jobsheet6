@@ -5,8 +5,9 @@ public class Pemilihan2Percobaan213 {
         Scanner input13 = new Scanner(System.in);
 
         int pilihan_menu;
-        String member;
-        double diskon, harga, total_bayar;
+        String member, jenisPembayaran;
+        double diskon, harga, totalBayar;
+        double potonganQris = 1000.0;
         
 
         System.out.println("--------------------------------------");
@@ -19,8 +20,10 @@ public class Pemilihan2Percobaan213 {
         System.out.print("Masukkan angka dari menu yang dipilih = ");
         pilihan_menu = input13.nextInt();
         input13.nextLine();
-        System.out.print("Apakah punya member (y/n)");
+        System.out.print("Apakah punya member (y/n) = ");
         member = input13.nextLine();
+        System.out.print("Jenis Pembayaran (cash/Qris) = ");
+        jenisPembayaran = input13.nextLine();
         System.out.println("--------------------------------------");
 
 
@@ -40,8 +43,8 @@ public class Pemilihan2Percobaan213 {
                 System.out.println("Masukkan pilihan menu dengan benar");
                 return;
             }
-            total_bayar = harga - (harga*diskon);
-            System.out.println("Total bayar setelah diskon = " + total_bayar);
+            totalBayar = harga - (harga*diskon);
+            System.out.println("Total bayar setelah diskon = " + totalBayar);
         }
 
 
@@ -59,11 +62,20 @@ public class Pemilihan2Percobaan213 {
                 System.out.println("Masukkan pilihan menu dengan benar");
                 return;
             }
-            System.out.println(" Total bayar = " + harga);
+            totalBayar = harga;
+            System.out.println(" Total bayar = " + totalBayar);
 
         }else{
             System.out.println("Member tidak valid");
+            return;
         }
+
+        if (jenisPembayaran.equalsIgnoreCase("Qris")) {
+            totalBayar -= potonganQris;
+            System.out.println("Potongan harga Qris = Rp. 1.000"); 
+            System.out.println("Total Bayar setelah potongan Qris = " + totalBayar);  
+        }
+        
         System.out.println("--------------------------------------");
 
 
